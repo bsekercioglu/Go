@@ -1,9 +1,7 @@
 package main
 
 import (
-	"golesson/conditionals"
-	"golesson/loops"
-	"golesson/variables"
+	"golesson/arrays"
 )
 
 /*
@@ -19,10 +17,10 @@ variables.Demo1()
 
 */
 func main() {
-	conditionals.Demo1()
-	variables.Demo1()
-	conditionals.Demo2()
-	loops.Demo1()
-	loops.Demo3()
+	//conditionals.Demo1()
+	//variables.Demo1()
+	//conditionals.Demo2()
+	//loops.Demo1()
+	arrays.Demo3()
 
 }
