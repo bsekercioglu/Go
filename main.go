@@ -1,27 +1,12 @@
 package main
 
 import (
-	"golesson/arrays"
+	"fmt"
+	"golesson/functions"
 )
 
-/*
-Açıklama: Yeni modül oluşturmak için terminal ekranında "go mod init golesson" yazılır.
-Bunun anlamı golesson modülü yaratıyoruz.
-ve modülü kullanmak istediğimiz kısımda ise import olarak bu modul ve ona bağlı altklasör bilgisi verilir
-"golesson/variables" variables klasöründeki modülü kullanacağız...
-
-mdoülü kullanırken de variables altındaki Demo1 metodunu kullanacağız şeklindedir.
-variables.Demo1()
-
-
-
-*/
 func main() {
-	//conditionals.Demo1()
-	//variables.Demo1()
-	//conditionals.Demo2()
-	//loops.Demo1()
-
-	arrays.Demo7()
-
+	functions.Variadic()
+	sayilar := []int{5, 3, 65, 32, 7887, 54, 76, 3, 12, 54, 76, 76, 23}
+	fmt.Printf("Toplam : %v\n", functions.ToplaVariadic(sayilar...))
 }
