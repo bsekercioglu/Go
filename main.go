@@ -21,6 +21,7 @@ func main() {
 	//variables.Demo1()
 	//conditionals.Demo2()
 	//loops.Demo1()
-	arrays.Demo3()
+
+	arrays.Demo7()
 
 }
