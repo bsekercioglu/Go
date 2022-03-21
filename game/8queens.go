@@ -23,12 +23,23 @@ func Solve(n int) {
 		current := make([]Point, 0)
 		Recurse(start, current, n)
 	}
-	fmt.Print("Results:\n")
+	fmt.Print("Sonuçlar:\n")
 	for _, result := range results {
 		fmt.Println(result)
 	}
-	fmt.Printf("There were %d results\n", len(results))
+	fmt.Printf("%d çözüm kümesi bulundu\n", len(results))
 }
+
+func CreateTable(result []int) {
+	for x := 0; x <= 8; x++ {
+
+		for y := 0; y <= 8; y++ {
+
+		}
+
+	}
+}
+
 func Recurse(point Point, current []Point, n int) {
 	if CanPlace(point, current) {
 		current = append(current, point)
@@ -60,8 +71,8 @@ func CanPlace(target Point, board []Point) bool {
 }
 
 func CanAttack(a, b Point) bool {
-	//fmt.Print(a, b)
+
 	answer := a.x == b.x || a.y == b.y || math.Abs(float64(a.y-b.y)) == math.Abs(float64(a.x-b.x))
-	//fmt.Print(answer)
+
 	return answer
 }
