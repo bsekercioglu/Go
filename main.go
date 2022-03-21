@@ -1,10 +1,11 @@
 package main
 
 import (
-	"golesson/structs"
+	"golesson/game"
 )
 
 func main() {
 
-	structs.Demo1()
+	game.Game()
+
 }

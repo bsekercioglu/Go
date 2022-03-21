@@ -25,18 +25,46 @@ func Solve(n int) {
 	}
 	fmt.Print("Sonuçlar:\n")
 	for _, result := range results {
-		fmt.Println(result)
+
+		CreateTable(result)
+
 	}
 	fmt.Printf("%d çözüm kümesi bulundu\n", len(results))
 }
 
-func CreateTable(result []int) {
-	for x := 0; x <= 8; x++ {
+func CreateTable(result []Point) {
+	var tablo [8][8]string
+	fmt.Println(result)
+	for x := 0; x < 8; x++ {
+		for y := 0; y < 8; y++ {
 
-		for y := 0; y <= 8; y++ {
+			tablo[x][y] = "."
 
 		}
 
+	}
+
+	for item := 0; item < 8; item++ {
+		item_x := result[item].x
+		item_y := result[item].y
+
+		for x := 0; x < 8; x++ {
+			for y := 0; y < 8; y++ {
+				if x == item_x && y == item_y {
+					tablo[x][y] = "Q"
+				}
+
+			}
+
+		}
+	}
+
+	for i := 0; i < 8; i++ {
+		for w := 0; w < 8; w++ {
+
+			fmt.Print(tablo[i][w])
+		}
+		fmt.Print("\n")
 	}
 }
 
