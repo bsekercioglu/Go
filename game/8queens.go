@@ -3,6 +3,7 @@ package game
 import (
 	"fmt"
 	"math"
+	"sort"
 )
 
 type Point struct {
@@ -32,13 +33,27 @@ func Solve(n int) {
 	fmt.Printf("%d çözüm kümesi bulundu\n", len(results))
 }
 
+type Sorter []Point
+
+func (a Sorter) Len() int           { return len(a) }
+func (a Sorter) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
+func (a Sorter) Less(i, j int) bool { return a[i].x < a[j].x }
+
 func CreateTable(result []Point) {
 	var tablo [8][8]string
-	fmt.Println(result)
-	for x := 0; x < 8; x++ {
-		for y := 0; y < 8; y++ {
+	sort.Sort(Sorter(result))
 
-			tablo[x][y] = "."
+	fmt.Println(result)
+
+	for x := 0; x < 8; x++ {
+		sayac := x
+		for y := 0; y < 8; y++ {
+			sayac++
+			if sayac%2 == 0 {
+				tablo[x][y] = string(rune('\u25a0'))
+			} else {
+				tablo[x][y] = string(rune('\u25a1'))
+			}
 
 		}
 
@@ -51,21 +66,31 @@ func CreateTable(result []Point) {
 		for x := 0; x < 8; x++ {
 			for y := 0; y < 8; y++ {
 				if x == item_x && y == item_y {
-					tablo[x][y] = "Q"
+					tablo[x][y] = string(rune('\u265B'))
 				}
 
 			}
 
 		}
 	}
-
+	fmt.Print("    ")
+	for j := 0; j < 8; j++ {
+		fmt.Printf(" %c ", rune(j+65))
+	}
+	fmt.Print("\n")
 	for i := 0; i < 8; i++ {
+		fmt.Printf(" %v ", i+1)
 		for w := 0; w < 8; w++ {
 
-			fmt.Print(tablo[i][w])
+			fmt.Print("  ", tablo[i][w])
 		}
 		fmt.Print("\n")
 	}
+	fmt.Print("    ")
+	for j := 0; j < 8; j++ {
+		fmt.Printf(" %c ", rune(j+65))
+	}
+	fmt.Print("\n\n")
 }
 
 func Recurse(point Point, current []Point, n int) {
