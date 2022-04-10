@@ -1,11 +1,7 @@
 package main
 
-import (
-	"golesson/game"
-)
+import "golesson/defer_statement"
 
 func main() {
-
-	game.Game()
-
+	defer_statement.Demo3()
 }
