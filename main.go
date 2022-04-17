@@ -1,7 +1,10 @@
 package main
 
-import "golesson/defer_statement"
+import (
+	"fmt"
+	"golesson/error_handling"
+)
 
 func main() {
-	defer_statement.Demo3()
+	fmt.Println(error_handling.TahminEt2(100))
 }
